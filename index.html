@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>zero — your app is live</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' fill='black'/%3E%3Cpath d='M50.5125 71.768C47.1418 71.768 44.1552 70.8293 41.5525 68.952C38.9925 67.0747 36.9872 64.408 35.5365 60.952C34.1285 57.496 33.4245 53.3787 33.4245 48.6C33.4245 43.8213 34.1285 39.704 35.5365 36.248C36.9872 32.792 38.9925 30.1253 41.5525 28.248C44.1552 26.3707 47.1418 25.432 50.5125 25.432C53.9258 25.432 56.9125 26.3707 59.4725 28.248C62.0325 30.1253 64.0165 32.792 65.4245 36.248C66.8752 39.704 67.6005 43.8213 67.6005 48.6C67.6005 53.3787 66.8752 57.496 65.4245 60.952C64.0165 64.408 62.0325 67.0747 59.4725 68.952C56.9125 70.8293 53.9258 71.768 50.5125 71.768ZM38.9285 48.6C38.9285 51.5013 39.2272 54.1253 39.8245 56.472C40.4645 58.776 41.3392 60.7173 42.4485 62.296L54.8645 31.512C53.5418 30.7867 52.0912 30.424 50.5125 30.424C48.2512 30.424 46.2458 31.1707 44.4965 32.664C42.7472 34.1147 41.3818 36.2053 40.4005 38.936C39.4192 41.624 38.9285 44.8453 38.9285 48.6ZM50.5125 66.84C52.7738 66.84 54.7792 66.1147 56.5285 64.664C58.2778 63.1707 59.6432 61.0587 60.6245 58.328C61.6058 55.5973 62.0965 52.3547 62.0965 48.6C62.0965 45.6987 61.7765 43.096 61.1365 40.792C60.5392 38.4453 59.6858 36.4827 58.5765 34.904L46.0965 65.752C47.4618 66.4773 48.9338 66.84 50.5125 66.84Z' fill='white'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          'DM Sans',
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #050505;
+        color: #e5e5e5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 640px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+        margin-bottom: 2.5rem;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        color: #fff;
+        margin-bottom: 0.75rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        color: #888;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+      }
+
+      .code-block {
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: left;
+        font-family: 'DM Mono', Menlo, Consolas, monospace;
+        font-size: 0.925rem;
+        line-height: 1.8;
+        margin-bottom: 3rem;
+        word-break: break-all;
+      }
+
+      .code-block .comment {
+        color: #555;
+      }
+      .code-block .command {
+        color: #e5e5e5;
+      }
+      .code-block .flag {
+        color: #888;
+      }
+      .code-block .prompt {
+        color: #444;
+        user-select: none;
+      }
+      .code-block .output {
+        color: #4ade80;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem 1.5rem;
+        text-align: left;
+        margin-bottom: 3rem;
+      }
+
+      .feature {
+        font-size: 0.9rem;
+        color: #777;
+        padding: 0.35rem 0;
+      }
+
+      .feature::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #fff;
+        border-radius: 50%;
+        margin-right: 0.6rem;
+        vertical-align: middle;
+      }
+
+      .links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+      }
+
+      .links a {
+        color: #888;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.15s;
+      }
+
+      .links a:hover {
+        color: #fff;
+      }
+
+      .divider {
+        width: 32px;
+        height: 1px;
+        background: #333;
+        margin: 0 auto 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg class="logo" width="64" height="64" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="18" fill="#000" />
+        <path
+          d="M50.5125 71.768C47.1418 71.768 44.1552 70.8293 41.5525 68.952C38.9925 67.0747 36.9872 64.408 35.5365 60.952C34.1285 57.496 33.4245 53.3787 33.4245 48.6C33.4245 43.8213 34.1285 39.704 35.5365 36.248C36.9872 32.792 38.9925 30.1253 41.5525 28.248C44.1552 26.3707 47.1418 25.432 50.5125 25.432C53.9258 25.432 56.9125 26.3707 59.4725 28.248C62.0325 30.1253 64.0165 32.792 65.4245 36.248C66.8752 39.704 67.6005 43.8213 67.6005 48.6C67.6005 53.3787 66.8752 57.496 65.4245 60.952C64.0165 64.408 62.0325 67.0747 59.4725 68.952C56.9125 70.8293 53.9258 71.768 50.5125 71.768ZM38.9285 48.6C38.9285 51.5013 39.2272 54.1253 39.8245 56.472C40.4645 58.776 41.3392 60.7173 42.4485 62.296L54.8645 31.512C53.5418 30.7867 52.0912 30.424 50.5125 30.424C48.2512 30.424 46.2458 31.1707 44.4965 32.664C42.7472 34.1147 41.3818 36.2053 40.4005 38.936C39.4192 41.624 38.9285 44.8453 38.9285 48.6ZM50.5125 66.84C52.7738 66.84 54.7792 66.1147 56.5285 64.664C58.2778 63.1707 59.6432 61.0587 60.6245 58.328C61.6058 55.5973 62.0965 52.3547 62.0965 48.6C62.0965 45.6987 61.7765 43.096 61.1365 40.792C60.5392 38.4453 59.6858 36.4827 58.5765 34.904L46.0965 65.752C47.4618 66.4773 48.9338 66.84 50.5125 66.84Z"
+          fill="white"
+        />
+      </svg>
+
+      <h1>Your app is live.</h1>
+      <p class="subtitle">
+        This app was deployed with zero — the simplest way to get from Docker image to live HTTPS app on your own
+        server.
+      </p>
+
+      <div class="code-block">
+        <div><span class="comment"># Install</span></div>
+        <div>
+          <span class="prompt">$ </span
+          ><span class="command">curl -fsSL https://shipzero.sh/install.sh | sudo bash</span>
+        </div>
+        <br />
+        <div><span class="comment"># Deploy</span></div>
+        <div><span class="prompt">$ </span><span class="command">zero deploy ghcr.io/you/myapp:latest</span></div>
+        <div><span class="output">🚀 Your app is live: https://myapp.your-server.com</span></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="features">
+        <div class="feature">Automatic HTTPS</div>
+        <div class="feature">Zero-downtime deploys</div>
+        <div class="feature">One-command rollback</div>
+        <div class="feature">Preview deployments</div>
+        <div class="feature">Webhook auto-deploy</div>
+        <div class="feature">Live terminal metrics</div>
+      </div>
+
+      <div class="links">
+        <a href="https://github.com/shipzero/zero">GitHub</a>
+        <a href="https://github.com/shipzero/zero#quickstart">Docs</a>
+      </div>
+    </div>
+  </body>
+</html>
