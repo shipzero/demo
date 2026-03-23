@@ -7,7 +7,7 @@
 </p>
 
 ```bash
-zero deploy ghcr.io/shipzero/demo:latest --name demo
+zero deploy ghcr.io/shipzero/demo:latest
 ```
 
 ## What it does
